@@ -1,0 +1,8 @@
+"layer","table_name","rows","files","bytes","mb","format","codec","partitioning"
+"gold","top20_returned_customers_q4_1993","20","1","3441","0.003","PARQUET","zstd","нет"
+"silver","dim_customer","150000","1","8582278","8.185","PARQUET","zstd","нет"
+"silver","fct_order_line","6001215","80","98617833","94.049","PARQUET","zstd","month(order_date)"
+"bronze","orders","1500000","7","37427517","35.694","PARQUET","zstd","year(orderdate)"
+"bronze","nation","25","1","2297","0.002","PARQUET","zstd","нет"
+"bronze","lineitem","6001215","8","154835432","147.663","PARQUET","zstd","нет"
+"bronze","customer","150000","1","8198430","7.819","PARQUET","zstd","нет"
