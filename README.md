@@ -51,7 +51,7 @@ tpch.sf1 ──CTAS──► bronze.lakehouse.* ──ELT──► silver.lakeho
 Нужен Docker Desktop (у меня 8 ГБ памяти на Docker) и ~3 ГБ свободного места.
 
 ```bash
-git clone <этот репозиторий> practice1 && cd practice1
+git clone https://github.com/kz2152946-crypto/practice1.git practice1 && cd practice1
 
 # 1. стек: MinIO, Postgres, Lakekeeper, бакеты, 4 warehouse, Trino; в конце SHOW CATALOGS
 bash scripts/01_stack.sh
