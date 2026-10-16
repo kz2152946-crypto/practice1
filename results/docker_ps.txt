@@ -1,0 +1,5 @@
+NAMES             IMAGE                                    STATUS                    PORTS
+trino             trinodb/trino:476                        Up 20 seconds (healthy)   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+lakekeeper        quay.io/lakekeeper/catalog:latest-main   Up 32 seconds             0.0.0.0:8181->8181/tcp, [::]:8181->8181/tcp
+lakehouse-pg      postgres:17                              Up 33 seconds             0.0.0.0:5433->5432/tcp, [::]:5433->5432/tcp
+lakehouse-minio   pgsty/silo:latest                        Up 33 seconds             0.0.0.0:9000-9001->9000-9001/tcp, [::]:9000-9001->9000-9001/tcp

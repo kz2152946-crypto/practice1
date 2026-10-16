@@ -1,0 +1,12 @@
+# данные, jar'ы, логи
+spark/jars/
+*.jar
+*.log
+*.parquet
+*.orc
+data/
+.DS_Store
+.env
+.idea/
+.vscode/
+__pycache__/
