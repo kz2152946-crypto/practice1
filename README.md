@@ -105,7 +105,7 @@ practice1/
 │   ├── conf/                 — spark-defaults.conf (каталог bronze → Lakekeeper), log4j2
 │   ├── bronze_spark.sql      — запросы Spark к Bronze
 │   ├── tpch_run.py           — драйвер потоков из laba2 (+ параметры каталога)
-│   └── queries_q10/q10.sql   — мой запрос для драйвера
+│   └── queries_q10/          — мой Q10 трижды (каждый поток гоняет его 3 раза)
 └── results/                  — сырые выводы и csv всех замеров
 ```
 
