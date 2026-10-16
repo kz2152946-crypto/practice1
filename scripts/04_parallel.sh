@@ -17,7 +17,7 @@ run3() { for r in 1 2 3; do docker exec trino trino --source "par_$1_$r" --execu
   time ( for i in $(seq 1 10); do run3 "s10_$i" & done; wait )
   echo "== exec_ms по запросам (system.runtime.queries)"
   docker exec trino trino --output-format ALIGNED --execute \
-    "SELECT CASE WHEN source LIKE 'par_s1_%' THEN '1 поток' ELSE '10 потоков' END AS mode,
+    "SELECT split_part(source, '_', 2) AS mode,
             count(*) AS queries, min(date_diff('millisecond', started, \"end\")) AS min_ms,
             approx_percentile(date_diff('millisecond', started, \"end\"), 0.5) AS median_ms,
             max(date_diff('millisecond', started, \"end\")) AS max_ms

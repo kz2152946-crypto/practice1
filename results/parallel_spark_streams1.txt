@@ -1,0 +1,11 @@
+Запросов: 3, потоков: 1
+SparkSession готов (каталог bronze.lakehouse), начинаю прогон...
+[stream 0] q10_run1: старт
+[stream 0] q10_run1: 4.89 с (ok)
+[stream 0] q10_run2: старт
+[stream 0] q10_run2: 1.23 с (ok)
+[stream 0] q10_run3: старт
+[stream 0] q10_run3: 1.43 с (ok)
+Исполнений: 3, ok: 3, ошибок: 0
+Общее время: 7.55 с, пропускная способность: 0.40 запросов/с
+Результат: /opt/spark/work/spark_q10_streams1.csv
