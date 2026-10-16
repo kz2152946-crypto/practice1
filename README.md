@@ -62,7 +62,7 @@ docker exec -i trino trino --output-format ALIGNED < sql/02_silver.sql   # + п�
 docker exec -i trino trino --output-format ALIGNED < sql/03_gold.sql     # + сверка с эталоном Q10
 docker exec -i trino trino --output-format CSV_HEADER < sql/00_layer_stats.sql > results/layers_stats.csv
 
-# 3. бенчмарк (≈20 минут, сам перезапускает trino и minio для cold-замеров)
+# 3. бенчмарк (≈15 минут, сам перезапускает trino и minio для cold-замеров)
 python3 scripts/benchmark.py
 
 # 4. эволюция схемы и time travel

@@ -1,0 +1,5 @@
+      v       | manifests | manifest_bytes 
+--------------+-----------+----------------
+ orc_none     |         1 |           8986 
+ parquet_zstd |         1 |           9568 
+(2 rows)
