@@ -1,0 +1,9 @@
+variant,format,codec,lineitem_mb,orders_mb,bronze_total_mb,lineitem_files,write_lineitem_s,write_orders_s,q10_cold_s,q10_warm_s,q10_cold_exec_ms,q10_warm_exec_ms,q1_cold_s,q1_warm_s
+parquet_none,PARQUET,NONE,355.37,109.64,488.42,8,12.68,4.62,4.607,2.428,3099,1312,2.255,1.315
+parquet_snappy,PARQUET,SNAPPY,198.42,52.05,262.31,8,14.08,4.17,4.698,2.357,3616,1381,2.738,1.248
+parquet_gzip,PARQUET,GZIP,143.73,34.12,185.52,8,21.38,2.8,4.311,2.265,3199,1129,2.732,1.243
+parquet_zstd,PARQUET,ZSTD,147.27,35.68,190.75,8,16.92,4.52,4.751,1.856,3301,1084,2.19,1.038
+orc_none,ORC,NONE,431.66,97.84,550.1,8,16.16,5.78,4.967,1.841,3817,1094,6.384,2.3
+orc_snappy,ORC,SNAPPY,211.19,47.41,269.26,8,18.39,5.22,4.202,2.719,3036,1959,3.062,1.217
+orc_gzip,ORC,GZIP,148.61,33.28,189.12,8,19.14,5.08,4.103,2.212,3033,1321,3.381,1.406
+orc_zstd,ORC,ZSTD,153.75,33.74,194.63,8,18.7,3.29,4.024,2.539,2778,1699,2.902,1.289
