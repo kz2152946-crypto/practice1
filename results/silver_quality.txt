@@ -1,0 +1,39 @@
+   tbl    | null_keys | null_fk | dup_keys 
+----------+-----------+---------+----------
+ nation   |         0 |       0 |        0 
+ customer |         0 |       0 |        0 
+ orders   |         0 |       0 |        0 
+ lineitem |         0 |       0 |        0 
+(4 rows)
+ returnflag |   cnt   
+------------+---------
+ A          | 1478493 
+ N          | 3043852 
+ R          | 1478870 
+(3 rows)
+ bad_discount | bad_price | bad_qty 
+--------------+-----------+---------
+            0 |         0 |       0 
+(1 row)
+ untrimmed_address | untrimmed_comment | untrimmed_name_phone | orphan_nation 
+-------------------+-------------------+----------------------+---------------
+              4664 |             37132 |                    0 |             0 
+(1 row)
+ orphan_lines 
+--------------
+            0 
+(1 row)
+SET SESSION
+DROP TABLE
+CREATE TABLE: 150000 rows
+DROP TABLE
+CREATE TABLE: 6001215 rows
+      tbl       |  rows   
+----------------+---------
+ dim_customer   |  150000 
+ fct_order_line | 6001215 
+(2 rows)
+ revenue_type  | rows_q4_1993_r 
+---------------+----------------
+ decimal(18,4) |         114705 
+(1 row)
