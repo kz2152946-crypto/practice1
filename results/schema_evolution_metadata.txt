@@ -1,0 +1,16 @@
+metadata: s3://silver/dim_customer_evo-ec52b8f233d84628bd09132415afcec4/metadata/00006-01a14698-700c-70f2-b638-64d18de62be4.gz.metadata.json
+current-schema-id: 3
+schema 1: 1:customer_key:long, 2:customer_name:string, 3:acct_balance:decimal(12, 2), 4:market_segment:string, 5:nation_name:string, 6:loyalty_tier:string
+schema 2: 1:customer_key:long, 2:customer_name:string, 3:acct_balance:decimal(12, 2), 4:segment:string, 5:nation_name:string, 6:loyalty_tier:string
+schema 3: 1:customer_key:long, 2:customer_name:string, 3:acct_balance:decimal(16, 2), 4:segment:string, 5:nation_name:string, 6:loyalty_tier:string
+schema 0: 1:customer_key:long, 2:customer_name:string, 3:acct_balance:decimal(12, 2), 4:market_segment:string, 5:nation_name:string
+первый снапшот: 8026648793354012482 — Trino читает его по схеме того снапшота (schema 0):
+  rows  | min_market_segment | balance_type  
+--------+--------------------+---------------
+ 150000 | AUTOMOBILE         | decimal(12,2) 
+(1 row)
+то же для текущего снапшота: колонки segment и loyalty_tier есть, market_segment нет
+  rows  | with_tier | balance_type  
+--------+-----------+---------------
+ 150001 |         1 | decimal(16,2) 
+(1 row)

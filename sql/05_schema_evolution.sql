@@ -45,7 +45,7 @@ FROM silver.lakehouse.dim_customer_evo;
 SELECT file_path, record_count FROM silver.lakehouse."dim_customer_evo$files";
 SELECT snapshot_id, operation, committed_at FROM silver.lakehouse."dim_customer_evo$snapshots" ORDER BY committed_at;
 
--- 6. Чтение первого снапшота: данные старой версии читаются по ТЕКУЩЕЙ схеме таблицы
-SELECT count(*) AS rows_in_first_snapshot
-FROM silver.lakehouse.dim_customer_evo
-FOR VERSION AS OF (SELECT min_by(snapshot_id, committed_at) FROM silver.lakehouse."dim_customer_evo$snapshots");
+-- 6. Чтение первого снапшота: Trino читает его по схеме того снапшота (старые имена колонок).
+--    FOR VERSION AS OF принимает только литерал —
+--    id подставляет scripts/schema_evolution_metadata.sh):
+-- SELECT * FROM silver.lakehouse.dim_customer_evo FOR VERSION AS OF <id первого снапшота>;

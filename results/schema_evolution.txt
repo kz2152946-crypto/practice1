@@ -1,0 +1,67 @@
+DROP TABLE
+CREATE TABLE: 150000 rows
+     Column     |     Type      | Extra | Comment 
+----------------+---------------+-------+---------
+ customer_key   | bigint        |       |         
+ customer_name  | varchar       |       |         
+ acct_balance   | decimal(12,2) |       |         
+ market_segment | varchar       |       |         
+ nation_name    | varchar       |       |         
+(5 rows)
+                                                                  file_path                                                                  | record_count | file_size_in_bytes 
+---------------------------------------------------------------------------------------------------------------------------------------------+--------------+--------------------
+ s3://silver/dim_customer_evo-ec52b8f233d84628bd09132415afcec4/data/20261016_212236_00030_k2559-a5bfa738-02f9-4e7c-81a3-ddbb34a850ae.parquet |       150000 |            1355649 
+(1 row)
+     snapshot_id     | operation |        committed_at         
+---------------------+-----------+-----------------------------
+ 8026648793354012482 | append    | 2026-10-16 21:22:36.952 UTC 
+(1 row)
+ADD COLUMN
+RENAME COLUMN
+SET COLUMN TYPE
+    Column     |     Type      | Extra | Comment 
+---------------+---------------+-------+---------
+ customer_key  | bigint        |       |         
+ customer_name | varchar       |       |         
+ acct_balance  | decimal(16,2) |       |         
+ segment       | varchar       |       |         
+ nation_name   | varchar       |       |         
+ loyalty_tier  | varchar       |       |         
+(6 rows)
+                                                                  file_path                                                                  | record_count | file_size_in_bytes 
+---------------------------------------------------------------------------------------------------------------------------------------------+--------------+--------------------
+ s3://silver/dim_customer_evo-ec52b8f233d84628bd09132415afcec4/data/20261016_212236_00030_k2559-a5bfa738-02f9-4e7c-81a3-ddbb34a850ae.parquet |       150000 |            1355649 
+(1 row)
+     snapshot_id     | operation |        committed_at         
+---------------------+-----------+-----------------------------
+ 8026648793354012482 | append    | 2026-10-16 21:22:36.952 UTC 
+(1 row)
+          timestamp          | latest_snapshot_id  | latest_schema_id |                                                                file                                                                
+-----------------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------------------------------
+ 2026-10-16 21:22:36.952 UTC | 8026648793354012482 |                0 | s3://silver/dim_customer_evo-ec52b8f233d84628bd09132415afcec4/metadata/00000-01a14698-6d2f-74d1-af3b-617323a4f8c2.gz.metadata.json 
+ 2026-10-16 21:22:37.050 UTC | 8026648793354012482 |                0 | s3://silver/dim_customer_evo-ec52b8f233d84628bd09132415afcec4/metadata/00001-01a14698-6d7a-77d1-83f7-15d7dccc8c3d.gz.metadata.json 
+ 2026-10-16 21:22:37.346 UTC | 8026648793354012482 |                0 | s3://silver/dim_customer_evo-ec52b8f233d84628bd09132415afcec4/metadata/00002-01a14698-6ea2-78e3-a06d-9937aadd01a5.gz.metadata.json 
+ 2026-10-16 21:22:37.373 UTC | 8026648793354012482 |                0 | s3://silver/dim_customer_evo-ec52b8f233d84628bd09132415afcec4/metadata/00003-01a14698-6ebd-7d91-b304-401e4134c834.gz.metadata.json 
+ 2026-10-16 21:22:37.396 UTC | 8026648793354012482 |                0 | s3://silver/dim_customer_evo-ec52b8f233d84628bd09132415afcec4/metadata/00004-01a14698-6ed4-7932-9ace-fd6802108af4.gz.metadata.json 
+(5 rows)
+INSERT: 1 row
+ customer_key |   customer_name    |   acct_balance    |  segment   | loyalty_tier 
+--------------+--------------------+-------------------+------------+--------------
+            1 | Customer#000000001 |            711.56 | BUILDING   | NULL         
+            2 | Customer#000000002 |            121.65 | AUTOMOBILE | NULL         
+      9999991 | Customer#NEW       | 12345678901234.56 | BUILDING   | GOLD         
+(3 rows)
+ rows_total | rows_with_tier | rows_with_segment 
+------------+----------------+-------------------
+     150001 |              1 |            150001 
+(1 row)
+                                                                  file_path                                                                  | record_count 
+---------------------------------------------------------------------------------------------------------------------------------------------+--------------
+ s3://silver/dim_customer_evo-ec52b8f233d84628bd09132415afcec4/data/20261016_212237_00041_k2559-2776c1da-7158-429c-aa01-bd1dca0ae1b7.parquet |            1 
+ s3://silver/dim_customer_evo-ec52b8f233d84628bd09132415afcec4/data/20261016_212236_00030_k2559-a5bfa738-02f9-4e7c-81a3-ddbb34a850ae.parquet |       150000 
+(2 rows)
+     snapshot_id     | operation |        committed_at         
+---------------------+-----------+-----------------------------
+ 8026648793354012482 | append    | 2026-10-16 21:22:36.952 UTC 
+ 6474076787894063387 | append    | 2026-10-16 21:22:37.668 UTC 
+(2 rows)
