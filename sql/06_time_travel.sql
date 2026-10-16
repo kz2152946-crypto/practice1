@@ -16,7 +16,7 @@ UPDATE silver.lakehouse.dim_customer SET acct_balance = 0 WHERE nation_name = 'G
 SELECT count(*) AS rows, sum(acct_balance) AS sum_balance
 FROM silver.lakehouse.dim_customer;
 
-SELECT snapshot_id, parent_id, operation, committed_at, summary['deleted-records'] AS deleted_records
+SELECT snapshot_id, parent_id, operation, committed_at, element_at(summary, 'added-position-deletes') AS position_deletes
 FROM silver.lakehouse."dim_customer$snapshots" ORDER BY committed_at;
 
 -- 2. Time travel: читаем таблицу как она была до аварии
@@ -52,7 +52,8 @@ ALTER TABLE silver.lakehouse.dim_customer EXECUTE rollback_to_snapshot(${GOOD});
 SELECT count(*) AS rows, sum(acct_balance) AS sum_balance
 FROM silver.lakehouse.dim_customer;
 
-SELECT snapshot_id, parent_id, operation, committed_at, is_current_ancestor
-FROM silver.lakehouse."dim_customer$snapshots" s
-JOIN silver.lakehouse."dim_customer$history" h USING (snapshot_id)
-ORDER BY committed_at;
+-- текущая ветка: is_current_ancestor = true только у "хорошего" снапшота, аварийные — false
+SELECT h.made_current_at, h.snapshot_id, s.operation, h.is_current_ancestor
+FROM silver.lakehouse."dim_customer$history" h
+JOIN silver.lakehouse."dim_customer$snapshots" s ON s.snapshot_id = h.snapshot_id
+ORDER BY h.made_current_at;

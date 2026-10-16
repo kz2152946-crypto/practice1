@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 q() { docker exec trino trino --output-format TSV --execute "$1" 2>/dev/null; }
 
-GOOD=$(q "SELECT snapshot_id FROM silver.lakehouse.\"dim_customer\$snapshots\" ORDER BY committed_at DESC LIMIT 1")
+GOOD=$(q "SELECT snapshot_id FROM silver.lakehouse.\"dim_customer\$history\" WHERE is_current_ancestor ORDER BY made_current_at DESC LIMIT 1")
 sleep 2
 TS=$(q "SELECT format_datetime(current_timestamp AT TIME ZONE 'UTC', 'yyyy-MM-dd HH:mm:ss.SSS') || ' UTC'")
 sleep 2
